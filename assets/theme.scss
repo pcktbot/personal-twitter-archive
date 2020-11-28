@@ -1,0 +1,20 @@
+$theme-colors: (
+  'primary': #e70822,
+  'secondary': #1e0409,
+  'tertiary': #102340,
+  'quaternary': #017a68
+);
+
+$font-family-base: 'Jaldi', sans-serif;
+// $headings-font-family: 'Roboto', sans-serif;
+$enable-rounded: true;
+$enable-shadows: false;
+$enable-gradients: false;
+$enable-transitions: true;
+$enable-print-styles: false;
+$bv-enable-table-stacked: false;
+// $body-bg: #304a69;
+
+// BOOTSTRAP VARIABLES DECLARED ABOVE
+@import 'bootstrap/scss/bootstrap.scss';
+@import 'bootstrap-vue/src/index.scss';

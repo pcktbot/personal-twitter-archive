@@ -1,20 +1,55 @@
 <template>
-  <div class="container">
-    Content
+  <div class="container mr-4">
+    <drawer>
+      <input-group :input="{ key: 'keyword', value: keyword }" />
+      <input-group :input="{ key: 'topic', value: topic }" />
+      <input-group :input="{ key: 'start', value: start, type: 'date' }" />
+      <input-group :input="{ key: 'end', min: start, value: end, type: 'date-min' }" />
+      <run-btn @submit="onLoad" />
+    </drawer>
+    <div class="scroll-container d-flex flex-column">
+      <div
+        v-for="tweet in tweets"
+        :key="tweet.id"
+      >
+        <tweet-card v-bind="{ tweet }" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-export default {}
+import { mapState, mapActions } from 'vuex'
+export default {
+  computed: mapState({
+    keyword: state => state.inputs.keyword,
+    topic: state => state.inputs.topic,
+    start: state => state.inputs.start,
+    end: state => state.inputs.end,
+    tweets: state => state.tweets.res
+  }),
+  methods: {
+    ...mapActions({
+      update: 'inputs/update',
+      load: 'tweets/load'
+    }),
+    onLoad () {
+      const query = `?start=${this.start}&end=${this.end}`
+      this.load(query)
+    }
+  }
+}
 </script>
 
-<style>
+<style lang="scss">
 .container {
   margin: 0 auto;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  position: relative;
+  overflow: hidden;
+  & .scroll-container {
+    overflow-y: scroll;
+    margin-bottom: 8em;
+  }
 }
 </style>
