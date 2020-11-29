@@ -7,7 +7,8 @@
       <input-group :input="{ key: 'end', min: start, value: end, type: 'date-min' }" />
       <run-btn @submit="onLoad" />
     </drawer>
-    <div class="scroll-container d-flex flex-column">
+    <dismissable-tags />
+    <div class="scroll-container d-flex flex-column px-4">
       <div
         v-for="tweet in tweets"
         :key="tweet.id"
@@ -22,6 +23,7 @@
 import { mapState, mapActions } from 'vuex'
 export default {
   computed: mapState({
+    inputs: state => state.inputs,
     keyword: state => state.inputs.keyword,
     topic: state => state.inputs.topic,
     start: state => state.inputs.start,

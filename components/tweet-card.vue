@@ -1,5 +1,5 @@
 <template>
-  <b-card class="my-3">
+  <div class="my-3 tweet-card">
     <div class="d-flex">
       <div>
         {{ isDate(tweet.created_at) }}
@@ -24,7 +24,7 @@
       </div>
       <div v-html="tweet.source"></div>
     </div>
-  </b-card>
+  </div>
 </template>
 
 <script>
@@ -51,5 +51,12 @@ export default {
 </script>
 
 <style lang="scss">
-
+.tweet-card {
+  padding: 1.5em;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.35),
+        inset 0px -3px 1px 0px rgba(139,0,0,0.50),
+        inset 0px 1px 1px 0px rgba(255,163,163,0.50);
+}
 </style>

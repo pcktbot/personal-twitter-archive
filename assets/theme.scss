@@ -1,5 +1,5 @@
 $theme-colors: (
-  'primary': #e70822,
+  'primary': #74485d,
   'secondary': #1e0409,
   'tertiary': #102340,
   'quaternary': #017a68
@@ -13,7 +13,7 @@ $enable-gradients: false;
 $enable-transitions: true;
 $enable-print-styles: false;
 $bv-enable-table-stacked: false;
-// $body-bg: #304a69;
+$body-bg: #60364b;
 
 // BOOTSTRAP VARIABLES DECLARED ABOVE
 @import 'bootstrap/scss/bootstrap.scss';

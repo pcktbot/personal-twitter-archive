@@ -95,7 +95,6 @@ module.exports = (app) => {
         },
         limit: 500
       })
-      console.log(data)
       res.json(data)
     } catch (error) {
       console.error(error)

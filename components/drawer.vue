@@ -1,7 +1,7 @@
 <template>
-  <div :class="[{ 'is-visible': isVisible }, 'drawer', 'border']">
+  <div :class="[{ 'is-visible': isVisible }, 'drawer']">
     <button
-      class="drawer__btn border"
+      class="drawer__btn"
       @click="isVisible = !isVisible"
     >
       <img v-bind="img" class="drawer__btn__avatar">
@@ -32,10 +32,6 @@ $primary: #e70822;
 $secondary: #1e0409;
 $tertiary: #102340;
 $quaternary: #017a68;
-.border {
-  border: 1px solid $secondary;
-  background-color: white;
-}
 .drawer {
   z-index: 1;
   position: fixed;
@@ -44,12 +40,16 @@ $quaternary: #017a68;
   left: 0;
   width: 90vw;
   max-width: 400px;
-  padding-right: 2em;
+  padding: 0.25em 1.5em;
   transform: translateX(calc(-100% + 10px));
   transition: 200ms linear;
+  background-color: white;
+  border-right: 4px double #0d1626;
+  box-shadow: 10px 0px 20px rgba(48,8,20,1);
+  z-index: 2;
   &__content {
     height: 100%;
-    border: 1px solid $quaternary;
+    // border: 4px double #0d1626;
   }
   &__btn {
     z-index: 2;
@@ -59,11 +59,13 @@ $quaternary: #017a68;
     background-color: white;
     overflow: hidden;
     border-radius: 50%;
+    border: none;
     position: absolute;
     right: 0;
     top: 10px;
     transform: translateX(calc(100% - 10px));
     transition: 100ms 200ms ease-in;
+    box-shadow: 10px 0px 20px rgba(48,8,20,1);
   }
   &.is-visible {
     transform: translateX(0%);
