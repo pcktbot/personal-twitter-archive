@@ -21,7 +21,7 @@
     "nuxt": "^2.14.6",
     "path": "^0.12.7",
     "pg": "^8.5.1",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.16.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^5.0.0",
